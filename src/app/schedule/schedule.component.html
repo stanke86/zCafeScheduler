@@ -1,0 +1,19 @@
+<h2>Schedule</h2>
+<p>
+  <input [(ngModel)]="name">
+</p>
+<div class="schedule">
+  <div class="time-slot" *ngFor="let timeSlot of timeSlots;let i=index">
+    <div class="time-slot-info">
+      <h3>
+        Timeslot {{i+1}}
+      </h3>
+      <p>Duration: {{timeSlot.durationMinutes}}min</p>
+      <p>Switch time: {{timeSlot.switchDurationMinutes}}min</p>
+    </div>
+    <div class="table" *ngFor="let table of timeSlot.tables" (click)="applyForTable(table)">
+      <h4>Table {{table.tableNumber}}</h4>
+      <div class="participant" *ngFor="let participant of table.participants">{{participant}}</div>
+    </div>
+  </div>
+</div>

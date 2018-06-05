@@ -1,0 +1,27 @@
+@import '../../variables';
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+
+.schedule {
+    height: 95vh;
+    display: grid;
+    .time-slot {
+        border: 1px solid #ddd;
+        margin: 4px;
+        display: flex;
+        &>div {
+            flex-grow: 1;
+            flex-basis: 0;
+            margin: 4px;
+            padding: 7px;
+        }
+        .time-slot-info {
+            text-align: center;
+            background: $purple;
+            color: #fff;
+            
+        }
+        .table {
+            color:$purple;
+        }
+    }
+}
