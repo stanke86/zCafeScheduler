@@ -44,7 +44,7 @@ export class ScheduleComponent implements OnInit {
     }
 
     table.participants.push(this.name);
-    this.toastrService.success("Yuo have applied successfully!");
+    this.toastrService.success("You have applied successfully!");
   }
 
 }
