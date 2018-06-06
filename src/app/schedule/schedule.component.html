@@ -5,14 +5,18 @@
 <div class="schedule">
   <div class="time-slot" *ngFor="let timeSlot of timeSlots;let i=index">
     <div class="time-slot-info">
-      <h3>
+      <h4>
         Timeslot {{i+1}}
-      </h3>
+      </h4>
       <p>Duration: {{timeSlot.durationMinutes}}min</p>
       <p>Switch time: {{timeSlot.switchDurationMinutes}}min</p>
     </div>
     <div class="table" *ngFor="let table of timeSlot.tables" (click)="applyForTable(table)">
-      <h4>Table {{table.tableNumber}}</h4>
+      <span *ngIf="table.capacity===table.participants.length" class="badge badge-info float-right">FULL</span>
+      <h5>Table {{table.tableNumber}}</h5>
+      <span title="Remaining seats" class="remaining-seats">
+        Remaining seats:<strong> {{table.capacity-table.participants.length}}</strong>
+      </span>
       <div class="participant" *ngFor="let participant of table.participants">{{participant}}</div>
     </div>
   </div>

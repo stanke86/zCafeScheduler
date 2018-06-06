@@ -4,9 +4,10 @@
     height: 95vh;
     display: grid;
     .time-slot {
-        border: 1px solid #ddd;
         margin: 4px;
-        display: flex;
+        @media screen and (min-width: 768px) {
+            display: flex;
+        }
         &>div {
             flex-grow: 1;
             flex-basis: 0;
@@ -19,11 +20,19 @@
             color: #fff;
         }
         .table {
-            color: $purple;
+            border: 1px solid #ddd;
+            min-height: 100px;
+            @media screen and (min-width: 768px) {
+                min-height: 300px;
+            } // color: $purple;
             &:hover {
-                background: $purple;
-                color: #fff;
+                // background: $purple;
+                // color: #fff;
                 border-radius: 8px;
+            }
+            .remaining-seats {
+                font-size: small;
+                color: #666;
             }
         }
     }

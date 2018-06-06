@@ -27,6 +27,13 @@ export class ScheduleComponent implements OnInit {
   }
 
   applyForTable(table: Table) {
+    let index = table.participants.indexOf(this.name);
+    if (index !== -1) {
+      table.participants.splice(index, 1);
+      this.toastrService.info("You are removed from the selected table");
+      return;
+    }
+
     let isInSameSlot: boolean = false;
 
     if (table.participants.length === table.capacity) {
