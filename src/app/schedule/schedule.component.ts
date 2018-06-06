@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TimeSlot } from '../time-slot';
 import { Table } from '../table';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-schedule',
@@ -20,7 +21,7 @@ export class ScheduleComponent implements OnInit {
     new TimeSlot(new Date(), new Date(), 17, 3, 6),
   ]
 
-  constructor() { }
+  constructor(private toastrService: ToastrService) { }
 
   ngOnInit() {
   }
@@ -29,20 +30,21 @@ export class ScheduleComponent implements OnInit {
     let isInSameSlot: boolean = false;
 
     if (table.participants.length === table.capacity) {
-      alert('Table is already full! Please choose another time slot or table');
+      this.toastrService.error('Table is already full! Please choose another time slot or table');
       return;
     }
 
     for (let index = 0; index < table.timeSlot.tables.length; index++) {
       const currentTable = table.timeSlot.tables[index];
       if (currentTable.participants.indexOf(this.name) !== -1) {
-        alert("You can't be in the same time slot twice! You are already assigned for table #" + currentTable.tableNumber);
+        this.toastrService.error("You can't be in the same time slot twice! You are already assigned for table #" + currentTable.tableNumber);
         isInSameSlot = true;
         return;
       }
     }
 
     table.participants.push(this.name);
+    this.toastrService.success("Yuo have applied successfully!");
   }
 
 }
