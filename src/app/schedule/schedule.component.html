@@ -1,6 +1,6 @@
 <h2>Schedule</h2>
 <p>
-  <input [(ngModel)]="name">
+  <input [(ngModel)]="schedulerState.userName">
 </p>
 <div class="schedule" *mobxAutorun>
   <app-time-slot [timeSlot]="timeSlot" class="time-slot" *ngFor="let timeSlot of schedulerState.timeSlots;let i=index">

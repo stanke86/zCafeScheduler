@@ -1,39 +1,7 @@
 @import '../../variables';
 @import '../../../node_modules/bootstrap/scss/bootstrap';
 .schedule {
-    height: 75vh;
+    height: 95vh;
     display: grid;
-    .time-slot {
-        margin: 4px;
-        @media screen and (min-width: 768px) {
-            display: flex;
-        }
-        &>div {
-            flex-grow: 1;
-            flex-basis: 0;
-            margin: 4px;
-            padding: 7px;
-        }
-        .time-slot-info {
-            text-align: center;
-            background: $purple;
-            color: #fff;
-        }
-        .table {
-            border: 1px solid #ddd;
-            min-height: 100px;
-            @media screen and (min-width: 768px) {
-                min-height: 300px;
-            } // color: $purple;
-            &:hover {
-                // background: $purple;
-                // color: #fff;
-                border-radius: 8px;
-            }
-            .remaining-seats {
-                font-size: small;
-                color: #666;
-            }
-        }
-    }
+    
 }

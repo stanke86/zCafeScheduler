@@ -1,2 +1,17 @@
-
-
+@import '../../variables';
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+.time-slot {
+    margin: 4px;
+    @media screen and (min-width: 768px) {
+        display: flex;
+    }
+    .time-slot-info {
+        text-align: center;
+        background: $purple;
+        color: #fff;
+        flex-grow: 1;
+        flex-basis: 0;
+        margin: 4px;
+        padding: 7px;
+    }
+}
