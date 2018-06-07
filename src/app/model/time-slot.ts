@@ -5,6 +5,7 @@ export class TimeSlot {
 
     @observable tables: Array<Table> = [];
 
+    @observable name: string;
     @observable start: Date;
     @observable end: Date;
     @observable durationMinutes: number;
@@ -12,12 +13,14 @@ export class TimeSlot {
     @observable numberOfTables: number;
 
     constructor(
+        name: string,
         start: Date,
         end: Date,
         durationMinutes: number,
         switchDurationMinutes: number,
         numberOfTables: number
     ) {
+        this.name = name;
         this.start = start;
         this.end = end;
         this.durationMinutes = durationMinutes;

@@ -1,8 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { TimeSlot } from '../time-slot';
-import { Table } from '../table';
+import { Table } from '../model/table';
 import { ToastrService } from 'ngx-toastr';
-import { SchedulerState } from '../scheduler-state';
+import { SchedulerState } from '../model/scheduler-state';
 
 declare global {
   interface Window { MyNamespace: any; }

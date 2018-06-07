@@ -1,3 +1,8 @@
-<p>
-  table works!
-</p>
+<div class="table" >
+  <span *ngIf="table.capacity===table.participants.length" class="badge badge-info float-right">FULL</span>
+  <h5>Table {{table.tableNumber}}</h5>
+  <span title="Remaining seats" class="remaining-seats">
+    Remaining seats:<strong> {{table.capacity-table.participants.length}}</strong>
+  </span>
+  <div class="participant" *ngFor="let participant of table.participants">{{participant}}</div>
+</div>

@@ -1,3 +1,10 @@
-<p>
-  time-slot works!
-</p>
+<div class="time-slot">
+  <div class="time-slot-info">
+    <h4>
+      Timeslot {{timeSlot.name}}
+    </h4>
+    <p>Duration: {{timeSlot.durationMinutes}}min</p>
+    <p>Switch time: {{timeSlot.switchDurationMinutes}}min</p>
+  </div>
+  <app-table [table]="table" *ngFor="let table of timeSlot.tables" (click)="applyForTable(table)"></app-table>
+</div>

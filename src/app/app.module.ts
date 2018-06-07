@@ -10,14 +10,14 @@ import { TableComponent } from './table/table.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { SchedulerState } from './scheduler-state';
+import { SchedulerState } from './model/scheduler-state';
 
 @NgModule({
   declarations: [
     AppComponent,
     TimeSlotComponent,
     TableComponent,
-    ScheduleComponent
+    ScheduleComponent,
   ],
   imports: [
     BrowserModule,

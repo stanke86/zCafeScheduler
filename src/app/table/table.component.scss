@@ -1,0 +1,20 @@
+.table {
+    border: 1px solid #ddd;
+    min-height: 100px;
+    flex-grow: 1;
+    flex-basis: 0;
+    margin: 4px;
+    padding: 7px;
+    @media screen and (min-width: 768px) {
+        min-height: 300px;
+    } // color: $purple;
+    &:hover {
+        // background: $purple;
+        // color: #fff;
+        border-radius: 8px;
+    }
+    .remaining-seats {
+        font-size: small;
+        color: #666;
+    }
+}
