@@ -1,9 +1,15 @@
-import { TimeSlot } from "./time-slot";
+import { TimeSlot } from './time-slot';
+import { observable } from 'mobx-angular';
 
 export class Table {
-    public participants: Array<string> = [];
+    @observable tableNumber: number;
+    @observable capacity: number;
+    @observable timeSlot: TimeSlot;
+    @observable participants: Array<string> = [];
 
-    constructor(public tableNumber: number, public capacity: number, public timeSlot: TimeSlot) {
-
+    constructor(tableNumber: number, capacity: number, timeSlot: TimeSlot) {
+        this.capacity = capacity;
+        this.tableNumber = tableNumber;
+        this.timeSlot = timeSlot;
     }
 }

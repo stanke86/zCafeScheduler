@@ -1,40 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { TimeSlot } from '../time-slot';
 import { Table } from '../table';
 import { ToastrService } from 'ngx-toastr';
+import { SchedulerState } from '../scheduler-state';
+
+declare global {
+  interface Window { MyNamespace: any; }
+}
+
+window.MyNamespace = window.MyNamespace || {};
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
   styleUrls: ['./schedule.component.scss']
 })
 export class ScheduleComponent implements OnInit {
 
-  name: string = 'milos';
+  name = 'milos';
 
-  timeSlots: Array<TimeSlot> = [
-    new TimeSlot(new Date(), new Date(), 17, 3, 6),
-    new TimeSlot(new Date(), new Date(), 17, 3, 6),
-    new TimeSlot(new Date(), new Date(), 17, 3, 6),
-    new TimeSlot(new Date(), new Date(), 17, 3, 6),
-    new TimeSlot(new Date(), new Date(), 17, 3, 6),
-    new TimeSlot(new Date(), new Date(), 17, 3, 6),
-  ]
-
-  constructor(private toastrService: ToastrService) { }
+  constructor(private toastrService: ToastrService, private schedulerState: SchedulerState) {
+    window.MyNamespace.state = schedulerState;
+  }
 
   ngOnInit() {
   }
 
   applyForTable(table: Table) {
-    let index = table.participants.indexOf(this.name);
-    if (index !== -1) {
-      table.participants.splice(index, 1);
-      this.toastrService.info("You are removed from the selected table");
+    const participantIndex = table.participants.indexOf(this.name);
+    if (participantIndex !== -1) {
+      table.participants.splice(participantIndex, 1);
+      this.toastrService.info('You are removed from the selected table');
       return;
     }
 
-    let isInSameSlot: boolean = false;
+    let isInSameSlot = false;
 
     if (table.participants.length === table.capacity) {
       this.toastrService.error('Table is already full! Please choose another time slot or table');
@@ -44,14 +45,15 @@ export class ScheduleComponent implements OnInit {
     for (let index = 0; index < table.timeSlot.tables.length; index++) {
       const currentTable = table.timeSlot.tables[index];
       if (currentTable.participants.indexOf(this.name) !== -1) {
-        this.toastrService.error("You can't be in the same time slot twice! You are already assigned for table #" + currentTable.tableNumber);
+        this.toastrService
+          .error('You can\'t be in the same time slot twice! You are already assigned for table #' + currentTable.tableNumber);
         isInSameSlot = true;
         return;
       }
     }
 
     table.participants.push(this.name);
-    this.toastrService.success("You have applied successfully!");
+    this.toastrService.success('You have applied successfully!');
   }
 
 }

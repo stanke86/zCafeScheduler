@@ -2,8 +2,8 @@
 <p>
   <input [(ngModel)]="name">
 </p>
-<div class="schedule">
-  <div class="time-slot" *ngFor="let timeSlot of timeSlots;let i=index">
+<div class="schedule" *mobxAutorun>
+  <div class="time-slot" *ngFor="let timeSlot of schedulerState.timeSlots;let i=index">
     <div class="time-slot-info">
       <h4>
         Timeslot {{i+1}}

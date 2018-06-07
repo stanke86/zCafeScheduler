@@ -1,6 +1,12 @@
 @import 'variables';
 @import '../node_modules/bootstrap/scss/bootstrap';
 
+body{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
 .bg-purple{
     background: $purple;
 }
+
