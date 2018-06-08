@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TimeSlot } from '../model/time-slot';
-import { Table } from '../model/table';
+import { TimeSlot } from '../../model/time-slot';
+import { Table } from '../../model/table';
 import { ToastrService } from 'ngx-toastr';
-import { SchedulerState } from '../model/scheduler-state';
+import { SchedulerState } from '../../model/scheduler-state';
 
 @Component({
   selector: 'app-time-slot',

@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { SchedulerState } from '../model/scheduler-state';
+import { SchedulerState } from '../../model/scheduler-state';
 
 declare global {
   interface Window { MyNamespace: any; }

@@ -1,5 +1,5 @@
-@import '../../variables';
-@import '../../../node_modules/bootstrap/scss/bootstrap';
+@import '../../../variables';
+@import '../../../../node_modules/bootstrap/scss/bootstrap';
 .time-slot {
     margin: 4px;
     @media screen and (min-width: 768px) {
